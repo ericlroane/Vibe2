@@ -1,1 +1,16 @@
+name: 'Build and Deploy to GKE'
 
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  PROJECT_ID: 'vibecodingplatv2-2810089-56b66' # Your Google Cloud project ID
+  GAR_LOCATION: 'us-central1' # Consistent with your Firebase App Hosting region
+  GKE_CLUSTER: 'YOUR_GKE_CLUSTER_NAME' # TODO: You need to specify this
+  GKE_ZONE: 'YOUR_GKE_CLUSTER_ZONE' # TODO: You need to specify this (e.g., us-central1-c)
+  DEPLOYMENT_NAME: 'YOUR_KUBERNETES_DEPLOYMENT_NAME' # TODO: You need to specify this
+  REPOSITORY: 'your-artifact-registry-repo-name' # TODO: You need to define this (e.g., 'vibecoding-images')
+  IMAGE: 'static-site' # This can remain 'static-site' or be updated to something like 'vibecoding-backend-fresh' if that better describes your image.
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/853263815035/locations/global/workloadIdentityPools/YOUR_POOL_ID/providers/YOUR_PROVIDER_ID' # TODO: You need to set this up
